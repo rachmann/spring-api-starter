@@ -32,9 +32,9 @@ public class FieldController {
                                    @Valid @RequestBody Field fieldRequest) {
         return fieldRepository.findById(fieldId)
                 .map(field -> {
-                    field.setName(fieldRequest.getField());
+                    field.setName(fieldRequest.getName());
                     field.setImage(fieldRequest.getImage());
-                    return fieldRepository.save(question);
+                    return fieldRepository.save(field);
                 }).orElseThrow(() -> new ResourceNotFoundException("Field not found with id " + fieldId));
     }
 

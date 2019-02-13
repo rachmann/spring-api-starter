@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "fields")
-public class Question extends BaseModel {
+public class Field extends BaseModel {
     @Id
     @GeneratedValue(generator = "field_id_generator")
     @SequenceGenerator(
@@ -43,7 +43,7 @@ public class Question extends BaseModel {
         return image;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setImage(String image) {
+        this.image = image;
     }
 }
