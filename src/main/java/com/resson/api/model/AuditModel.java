@@ -1,4 +1,4 @@
-package com.example.postgresdemo.model;
+package com.resson.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
@@ -14,7 +14,7 @@ import java.util.Date;
         value = {"createdAt", "updatedAt"},
         allowGetters = true
 )
-public abstract class AuditModel implements Serializable {
+public abstract class BaseModel implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
