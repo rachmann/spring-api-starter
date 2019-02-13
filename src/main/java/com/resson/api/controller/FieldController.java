@@ -3,6 +3,9 @@ package com.resson.api.controller;
 import com.resson.api.exception.ResourceNotFoundException;
 import com.resson.api.model.Field;
 import com.resson.api.repository.FieldRepository;
+import com.resson.api.service.StorageService;
+
+import com.google.cloud.storage.Storage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +19,8 @@ public class FieldController {
     @Autowired
     private FieldRepository fieldRepository;
 
+    private StorageService storageService;
+
     @GetMapping("/fields")
     public Page<Field> getFields(Pageable pageable) {
         return fieldRepository.findAll(pageable);
@@ -24,6 +29,8 @@ public class FieldController {
 
     @PostMapping("/fields")
     public Field createField(@Valid @RequestBody Field field) {
+        storageService = new StorageService();
+        storageService.init();
         return fieldRepository.save(field);
     }
 
