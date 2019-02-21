@@ -9,11 +9,7 @@ import javax.validation.constraints.Size;
 public class Field extends BaseModel {
     @Id
     @GeneratedValue(generator = "field_id_generator")
-    @SequenceGenerator(
-            name = "field_id_generator",
-            sequenceName = "field_id_sequence",
-            initialValue = 1000
-    )
+    @SequenceGenerator(name = "field_id_generator", sequenceName = "field_id_sequence", initialValue = 1000)
     private Long id;
 
     @NotBlank
