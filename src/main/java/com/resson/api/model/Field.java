@@ -8,6 +8,8 @@ import javax.validation.constraints.Size;
 @Table(name = "fields")
 public class Field extends BaseModel {
     
+    private static final long serialVersionUID = 8558895620357545742L;
+
     @Id
     @GeneratedValue(generator = "field_id_generator")
     @SequenceGenerator(name = "field_id_generator", sequenceName = "field_id_sequence", initialValue = 1000)
@@ -16,6 +18,8 @@ public class Field extends BaseModel {
     @NotBlank
     @Size(min = 3, max = 100)
     private String name;
+
+    private String bucketPath;
 
     @Column(columnDefinition = "text")
     private String image;
@@ -34,6 +38,14 @@ public class Field extends BaseModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getBucketPath() {
+        return bucketPath;
+    }
+
+    public void setBucketPath(String bucketPath) {
+        this.bucketPath = bucketPath;
     }
 
     public String getImage() {
